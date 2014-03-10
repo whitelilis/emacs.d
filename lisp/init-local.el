@@ -45,22 +45,31 @@
 (global-set-key [(control x) (w)]  'change-pr)
 
 ;;; font
-;; font for mac
-(set-frame-font "Monaco:pixelsize=15")
-(dolist (charset '(han kana symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset
-                    (font-spec :family "Hiragino Sans GB" :size 18)
-))
-;; font for linux
-;(set-default-font "文泉驿等宽微米黑-11")
-;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-11") ; very good width
+(if *is-a-mac*
+    (progn
+      ;; font for mac
+      (set-frame-font "Monaco:pixelsize=15")
+      (dolist (charset '(han kana symbol cjk-misc bopomofo))
+        (set-fontset-font (frame-parameter nil 'font)
+                          charset
+                          (font-spec :family "Hiragino Sans GB" :size 18))))
+  ;; font for linux
+  ;;(set-default-font "文泉驿等宽微米黑-11")
+  ;;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-11") ; very good width
 
-;; other option 1
-;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
+  ;; other option 1
+  ;;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
+  ;; other option 2
+  ;;(set-face-attribute 'default nil :height 120) ; The value is in 1/10pt, so 100 will give you 10pt, etc.
 
-;; other option 2
-;(set-face-attribute 'default nil :height 120) ; The value is in 1/10pt, so 100 will give you 10pt, etc.
+  ;; org chinese and english table width align good
+  (set-default-font "Dejavu Sans Mono 11")
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      (font-spec :family "WenQuanYi Micro Hei Mono" :size 18)))
+  )
+
 
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
