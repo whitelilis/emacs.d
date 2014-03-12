@@ -29,8 +29,8 @@
 (setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
 (setq auto-insert-alist '(;; file-name-regexp  description    template-file   other-function-to-do-with-space
                           (("\\.py" . "python file") . ["t.py" my-expand])
-                          (("\\.org" . "org file") .   ["t.org" my-expand])
                           (("\\-b.org" . "beamer file") . ["b.org" my-expand])
+                          (("\\.org" . "org file") .   ["t.org" my-expand])
                           ))
 
 
