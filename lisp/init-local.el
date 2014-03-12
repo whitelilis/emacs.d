@@ -20,7 +20,19 @@
 (setq display-time-format "%Y-%m-%d %R")
 (display-time)
 
-;; larger font
+;; auto inster header
+(defun my-expand ()
+  (beginning-of-buffer)
+  (replace-regexp "%@" ""  ))
+(add-hook 'find-file-hook 'auto-insert) ;;; Adds hook to find-files-hook
+(setq auto-insert-directory "~/.emacs.d/templates/") ;;; Or use custom, *NOTE* Trailing slash important
+(setq auto-insert-query nil) ;;; If you don't want to be prompted before insertion
+(setq auto-insert-alist '(;; file-name-regexp  description    template-file   other-function-to-do-with-space
+                          (("\\.py" . "python file") . ["t.py" my-expand])
+                          (("\\.org" . "org file") .   ["t.org" my-expand])
+                          (("\\-b.org" . "beamer file") . ["b.org" my-expand])
+                          ))
+
 
 
 ;;; for perl mode
