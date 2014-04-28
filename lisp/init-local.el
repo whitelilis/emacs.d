@@ -141,6 +141,32 @@
      (defun last-7-day-report (days)
        (interactive (list (read-number "Days:" 6)))
        (apply 'wizard/closed-tasks-between (last-n-day days)))
+
+     (defun org-result-clear (string)
+       "convert org-result string to readable list string for week report."
+        (defun line-format (line)
+          "  gtd:        DONE [#A]  XXXX -> XXXX   DONE."
+          (replace-regexp-in-string ".*:\s+\\(.*\\)\s+\\[.*\\]\s+\\(.*\\)\b*" "[\\1] \\2" line))
+
+        (s-join "\n" (mapcar 'line-format
+                             (remove-if-not (lambda (x) (string-match "#A" x)) ; only care #A items
+                                            (cddr (s-split "\n" string))))) ;remove header 2 lines
+        )
+
+     (defun week-report ()
+       (interactive)
+       (apply 'wizard/closed-tasks-between (last-n-day 6))
+       (let* ((done-some (buffer-substring-no-properties 1 (buffer-end 1)))
+              (todo-some (progn (org-todo-list)
+                                (buffer-substring-no-properties 1 (buffer-end 1))))
+              (aim-buffer-name "week report"))
+         (get-buffer-create aim-buffer-name)
+         (switch-to-buffer aim-buffer-name)
+         (erase-buffer)
+         (insert "本周工作如下:\n\n")
+         (insert (org-result-clear done-some))
+         (insert "\n\n下周工作安排如下:\n\n")
+         (insert (org-result-clear todo-some))))
      ;; end report stuff
 
      (setq org-use-sub-superscripts nil)
