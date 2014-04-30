@@ -175,6 +175,9 @@
 (setq org-agenda-files (list "~/Dropbox/orgs/gtd.org"))
 (setq org-return-follows-link t)
 
+;;; for confluence
+(require 'confluence)
+(setq confluence-url "http://conf.admaster.co/rpc/xmlrpc")
 
 ;;; rebind
 (global-set-key [(control s)] '(lambda ()
