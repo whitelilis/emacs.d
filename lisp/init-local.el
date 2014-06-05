@@ -216,5 +216,16 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; processing
-(setq processing-location "/Applications/Processing2.app/Contents/MacOS/Processing")
+;(setq processing-location "/Applications/Processing2.app/Contents/MacOS/Processing")
+
+
+;; python flakes
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+
+;; flymake error display when cursor on
+(require 'flymake-cursor)
+
+
+;; file end
 (provide 'init-local)
