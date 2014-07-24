@@ -219,13 +219,26 @@
 ;(setq processing-location "/Applications/Processing2.app/Contents/MacOS/Processing")
 
 
-;; python flakes
+;; flymake some
 (require 'flymake-python-pyflakes)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+(require 'flymake-shell)
+(add-hook 'sh-set-shell-hook 'flymake-shell-load)
+(require 'flymake-json)
+(add-hook 'json-mode 'flymake-json-load)
 
 ;; flymake error display when cursor on
 (require 'flymake-cursor)
 
+
+;; html5
+(add-to-list 'load-path "~/github/html5-el/")
+(eval-after-load "rng-loc"
+  '(add-to-list 'rng-schema-locating-files "~/github/html5-el/schemas.xml"))
+(require 'whattf-dt)
+
+;; debuger on error
+(setq debug-on-error t)
 
 ;; file end
 (provide 'init-local)
