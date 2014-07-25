@@ -32,7 +32,7 @@
                           (("\\-b.org" . "beamer file") . ["b.org" my-expand])
                           (("\\.org" . "org file") .   ["t.org" my-expand])
                           (("\\.sh"  . "bash file").   ["t.sh" my-expand])
-                          ))
+                          (("\\.js" . "js file")) .    ["t.js" my-expand]))
 
 
 
