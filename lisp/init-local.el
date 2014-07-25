@@ -13,6 +13,7 @@
                  '(ccl ("ccl") :coding-system utf-8-unix)))
   (setq slime-autodoc-use-multiline-p t)
   (setq slime-default-lisp 'ccl)
+  (slime-setup '(slime-js))
   (global-set-key "\C-cs" 'slime-selector))
 
 ;;; for time display
@@ -32,7 +33,7 @@
                           (("\\-b.org" . "beamer file") . ["b.org" my-expand])
                           (("\\.org" . "org file") .   ["t.org" my-expand])
                           (("\\.sh"  . "bash file").   ["t.sh" my-expand])
-                          (("\\.js" . "js file")) .    ["t.js" my-expand]))
+                          (("\\.js" . "js file") .    ["t.js" my-expand])))
 
 
 
