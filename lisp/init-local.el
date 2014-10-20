@@ -1,7 +1,7 @@
 ;; wizard code start here
 ;; zoo
 (setq backup-directory-alist '(("." . "~/back")))
-
+(setq save-interprogram-paste-before-kill nil) ; sometimes pastboard will not work, so add this
 
 ;; rainbow-delimiters-mode is good, add for all
 ;(global-rainbow-delimiters-mode)
@@ -176,8 +176,8 @@
 (setq org-return-follows-link t)
 
 ;;; for confluence
-(require 'confluence)
-(setq confluence-url "http://conf.admaster.co/rpc/xmlrpc")
+;(require 'confluence)
+;(setq confluence-url "http://conf.admaster.co/rpc/xmlrpc")
 
 ;;; rebind
 (global-set-key [(control s)] '(lambda ()
