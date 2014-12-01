@@ -32,6 +32,7 @@
                           (("\\-b.org" . "beamer file") . ["b.org" my-expand])
                           (("\\.org" . "org file") .   ["t.org" my-expand])
                           (("\\.sh"  . "bash file").   ["t.sh" my-expand])
+                          (("\\.dot" . "dot file") .   ["t.dot" my-expand])
                           ))
 
 
@@ -225,6 +226,10 @@
 
 ;; flymake error display when cursor on
 (require 'flymake-cursor)
+
+
+;; c++ indent
+(setq c-basic-offset 8)
 
 
 ;; file end

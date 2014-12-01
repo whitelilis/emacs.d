@@ -1,0 +1,5 @@
+// -*- mode: graphviz-dot ;-*-
+digraph %@{
+        //node[shape=box, color=red, style=solid] //monitors
+
+}
