@@ -149,6 +149,12 @@
           "  gtd:        DONE [#A]  XXXX -> XXXX   DONE."
           (replace-regexp-in-string ".*:\s+\\(.*\\)\s+\\[.*\\]\s+\\(.*\\)\b*" "[\\1] \\2" line))
 
+        (defun s-join (delimiter lst)
+          (reduce (lambda (x y)
+                    (concat  x delimiter y)) lst))
+        (defun s-split (delimiter lst)
+          (split-string lst delimiter ))
+
         (s-join "\n" (mapcar 'line-format
                              (remove-if-not (lambda (x) (string-match "#A" x)) ; only care #A items
                                             (cddr (s-split "\n" string))))) ;remove header 2 lines
