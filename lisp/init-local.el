@@ -13,7 +13,7 @@
                  '(ccl ("ccl") :coding-system utf-8-unix)))
   (setq slime-autodoc-use-multiline-p t)
   (setq slime-default-lisp 'ccl)
-  (slime-setup '(slime-js))
+  ;;(slime-setup '(slime-js))
   (global-set-key "\C-cs" 'slime-selector))
 
 ;;; for time display
@@ -244,7 +244,8 @@
 (add-to-list 'load-path "~/github/html5-el/")
 (eval-after-load "rng-loc"
   '(add-to-list 'rng-schema-locating-files "~/github/html5-el/schemas.xml"))
-(require 'whattf-dt)
+
+;;(require 'whattf-dt)
 
 ;; debuger on error
 (setq debug-on-error t)
