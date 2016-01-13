@@ -1,5 +1,5 @@
 #!/bin/bash
-cwd=$(dirname $0)
+cwd=$(cd $(dirname $0); pwd)
 cd  $cwd
 source /etc/profile
 

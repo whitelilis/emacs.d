@@ -13,8 +13,9 @@ Rthandler.setFormatter(formatter)
 logger = logging.getLogger('')
 logger.addHandler(Rthandler)
 logger.setLevel(logging.INFO)
-pwd = os.path.abspath(os.path.dirname(inspect.stack()[0][1]))
 
+#######################################
+pwd = os.path.abspath(os.path.dirname(inspect.stack()[0][1]))
 import socket
 hostname = socket.gethostname()
 ################################################################################################

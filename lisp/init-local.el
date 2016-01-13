@@ -10,7 +10,7 @@
 (after-load 'slime
   (when (executable-find "ccl")
     (add-to-list 'slime-lisp-implementations
-                 '(ccl ("ccl") :coding-system utf-8-unix)))
+                 '(ccl ("ccl" "-K" "utf8") :coding-system utf-8-unix)))
   (setq slime-autodoc-use-multiline-p t)
   (setq slime-default-lisp 'ccl)
   ;;(slime-setup '(slime-js))
@@ -36,7 +36,11 @@
                           (("\\.dot" . "dot file") .   ["t.dot" my-expand])
                           (("\\.js" . "js file") .    ["t.js" my-expand])))
 
-
+(defun remove-wiz-href ()
+  (interactive)
+  (beginning-of-buffer)
+  (replace-regexp "wiz:.*\"" "\"")
+  (replace-regexp "&nbsp;" ""))
 
 ;;; for perl mode
 (defalias 'perl-mode 'cperl-mode)
