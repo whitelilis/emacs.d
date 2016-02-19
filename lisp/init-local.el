@@ -42,6 +42,12 @@
   (replace-regexp "wiz:.*\"" "\"")
   (replace-regexp "&nbsp;" ""))
 
+(defun remove-table-width ()
+  (interactive)
+  (beginning-of-buffer)
+  (replace-regexp "width=\".*\"" "")
+  (replace-regexp "&nbsp;" ""))
+
 ;;; for perl mode
 (defalias 'perl-mode 'cperl-mode)
 (add-hook 'cperl-mode-hook 'n-cperl-mode-hook t)

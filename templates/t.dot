@@ -1,5 +1,6 @@
 // -*- mode: graphviz-dot ;-*-
 digraph %@{
-        //node[shape=box, color=red, style=solid] //monitors
+        //node[shape=box, fillcolor=red, style=filled] //monitors
+        //rankdir=LR
 
 }
