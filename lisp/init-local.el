@@ -12,7 +12,7 @@
     (add-to-list 'slime-lisp-implementations
                  '(ccl ("ccl" "-K" "utf8") :coding-system utf-8-unix)))
   (setq slime-autodoc-use-multiline-p t)
-  (setq slime-default-lisp 'ccl)
+  (setq slime-default-lisp 'sbcl)
   ;;(slime-setup '(slime-js))
   (global-set-key "\C-cs" 'slime-selector))
 
@@ -238,15 +238,15 @@
 
 
 ;; flymake some
-(require 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(require 'flymake-shell)
-(add-hook 'sh-set-shell-hook 'flymake-shell-load)
-(require 'flymake-json)
-(add-hook 'json-mode 'flymake-json-load)
+;;(require 'flymake-python-pyflakes)
+;;(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;;(require 'flymake-shell)
+;;(add-hook 'sh-set-shell-hook 'flymake-shell-load)
+;;(require 'flymake-json)
+;;(add-hook 'json-mode 'flymake-json-load)
 
 ;; flymake error display when cursor on
-(require 'flymake-cursor)
+;;(require 'flymake-cursor)
 
 ;; c++ indent
 (setq c-basic-offset 8)

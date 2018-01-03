@@ -1,9 +1,9 @@
 (when (< emacs-major-version 24)
   (require-package 'org))
 (require-package 'org-fstree)
-(when *is-a-mac*
-  (require-package 'org-mac-link)
-  (require-package 'org-mac-iCal))
+;(when *is-a-mac*
+;  (require-package 'org-mac-link)
+;  (require-package 'org-mac-iCal))
 
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
